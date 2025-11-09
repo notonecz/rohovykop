@@ -1,0 +1,85 @@
+<mat-list>
+  <div mat-subheader>Super Administrátoři</div>
+  @for (c of api.ucty; track c.id) {
+    @if (c!.root_admin == 2) {
+      <div class="items">
+        <mat-list-item style="width: max-content;">
+          <mat-icon matListItemIcon>manage_accounts</mat-icon>
+          <div matListItemTitle>{{c.name_first}} {{c.name_last}} - {{c.username}}</div>
+          <div style="color: gray" mat-line>{{c.email}}</div>
+        </mat-list-item>
+        @if (api.user?.email === c.email) {
+          <button (click)="api.editClen(c.id,c.username,c.email,c.name_first,c.name_last)" class="flat-button" style="width: 40px;height: 40px">
+            <mat-icon>edit</mat-icon>
+          </button>
+        }
+      </div>
+    }
+  }
+  <div mat-subheader>Administrátoři</div>
+  @for (c of api.ucty; track c.id) {
+    @if (c.root_admin == 1) {
+      <div class="items">
+        <mat-list-item style="width: max-content;">
+          <mat-icon matListItemIcon>shield_person</mat-icon>
+          <div matListItemTitle>{{c.name_first}} {{c.name_last}} - {{c.username}}</div>
+          <div style="color: gray" mat-line>{{c.email}}</div>
+        </mat-list-item>
+        @if (api.user!.root_admin  == 2) {
+
+          <button (click)="api.editClen(c.id,c.username,c.email,c.name_first,c.name_last)" class="flat-button" style="width: 40px;height: 40px">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button (click)="downgradeUser(c.id)" class="flat-button" style="width: 40px;height: 40px">
+            <mat-icon>keyboard_double_arrow_down</mat-icon>
+          </button>
+
+          <button (click)="upgradeClenSuper(c.id)" class="flat-button" style="width: 40px;height: 40px">
+            <mat-icon>keyboard_double_arrow_up</mat-icon>
+          </button>
+
+          <button class="flat-button" style="width: 40px;height: 40px">
+            <mat-icon (click)="removeClen(c.id)">delete</mat-icon>
+          </button>
+
+        } @else if (api.user?.email == c.email) {
+
+          <button (click)="api.editClen(c.id,c.username,c.email,c.name_first,c.name_last)" class="flat-button" style="width: 40px;height: 40px">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+        }
+      </div>
+    }
+  }
+  <div mat-subheader>Uživatelé</div>
+  @for (c of api.ucty; track c.id) {
+    @if (!c.root_admin || c.root_admin == 0) {
+      <div class="items">
+        <mat-list-item style="width: max-content;">
+          <mat-icon matListItemIcon>person</mat-icon>
+          <div matListItemTitle>{{c.name_first}} {{c.name_last}} - {{c.username}}</div>
+          <div style="color: gray" mat-line>{{c.email}}</div>
+        </mat-list-item>
+        <button (click)="api.editClen(c.id,c.username,c.email,c.name_first,c.name_last)" class="flat-button" style="width: 40px;height: 40px">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        @if (api.user!.root_admin > 0) {
+
+          <button (click)="upgradeUser(c.id)" class="flat-button" style="width: 40px;height: 40px">
+            <mat-icon>keyboard_double_arrow_up</mat-icon>
+          </button>
+
+          <button class="flat-button" style="width: 40px;height: 40px">
+            <mat-icon (click)="removeClen(c.id)">delete</mat-icon>
+          </button>
+
+        }
+
+      </div>
+    }
+  }
+</mat-list>
+

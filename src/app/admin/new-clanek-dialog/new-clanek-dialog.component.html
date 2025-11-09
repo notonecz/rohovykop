@@ -1,0 +1,27 @@
+<div>
+  <h2 class="header">{{data.title}}</h2>
+  <div class="content">
+    <form class="form" style="gap: 16px" [formGroup]="form">
+      <input class="input" placeholder="Název článku" [formControl]="form.controls.nazev" />
+      <textarea class="input" placeholder="Text článku" [formControl]="form.controls.text"></textarea>
+      <div>
+      <input type="file" (change)="onFileSelected($event)" style="display: none" #fileUpload />
+      <button class="flat-button button upload" (click)="onFileUpload($event, fileUpload)" type="button">
+        <mat-icon>image</mat-icon>
+        Nahrát obrázek
+      </button>
+      @if (!reader.result && image?.image) {
+        <img width="100%" [src]="image?.image" alt="Náhled">
+      }
+      @else if (reader.result) {
+        <p [style.margin-bottom]="!reader.result ? 0 : '16px'" class="file-name">{{fileName || "Žádný soubor není nahrán!"}}</p>
+        <img width="100%" [src]="reader.result" alt="Náhled">
+      }
+    </div>
+    </form>
+  </div>
+  <div class="action">
+    <button class="flat-button button" (click)="dialogRef.close()">Zrušit</button>
+    <button class="flat-button button buttonPrimary" (click)="save(form.getRawValue())">Uložit</button>
+  </div>
+</div>

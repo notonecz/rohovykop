@@ -1,0 +1,40 @@
+@if (form(); as f) {
+  <form [formGroup]="f" (ngSubmit)="submit()">
+    <div class="form">
+      <input class="upload" type="file" (change)="onFileChange($event, 'baner')" #fileUpload>
+      <input class="upload" type="file" (change)="onFileChange($event, 'icon')" #fileUpload2>
+      <input class="upload" type="file" (change)="onFileChange($event, 'logo')" #fileUpload3>
+      <button class="flat-button file" (click)="onFileUpload($event, fileUpload)" type="button">
+        <mat-icon>image</mat-icon>
+        Nahrát baner
+      </button>
+      <button class="flat-button file" (click)="onFileUpload($event, fileUpload2)" type="button">
+        <mat-icon>image</mat-icon>
+        Nahrát ikonu (64 x 64) nebo menší
+      </button>
+      <button class="flat-button file" (click)="onFileUpload($event, fileUpload3)" type="button">
+        <mat-icon>image</mat-icon>
+        Nahrát logo
+      </button>
+      @if (f.value.baner) {
+        <img [src]="f.value.baner" alt="baner" class="obrazek">
+      } @else {
+        <p>Žádný baner</p>
+      }
+      @if (f.value.baner) {
+        <img [src]="f.value.icon" alt="icon" class="obrazek">
+      } @else {
+        <p>Žádná icon</p>
+      }
+      @if (f.value.baner) {
+        <img [src]="f.value.logo" alt="logo" class="obrazek">
+      } @else {
+        <p>Žádné logo</p>
+      }
+    </div>
+    <label style="padding-bottom: 0">O nás</label>
+    <textarea class="input" [formControl]="f.controls.onas"></textarea>
+    <button type="submit" class="flat-button">Uložit nastavení</button>
+  </form>
+}
+

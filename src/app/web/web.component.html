@@ -1,0 +1,8 @@
+<app-nav style="position: fixed; width: 100%; top: 0;z-index: 100"></app-nav>
+<div class="space"></div>
+<div class="router">
+  @if (api.isLoading()) {
+    <mat-progress-bar class="loading" mode="indeterminate"></mat-progress-bar>
+  }
+  <router-outlet></router-outlet>
+</div>

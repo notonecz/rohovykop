@@ -1,0 +1,37 @@
+<div>
+  <h2 class="header">{{ title }}</h2>
+  <div class="content">
+    <form class="form" [formGroup]="form">
+      <div class="flex">
+        <div>
+          <label>Jméno</label>
+          <input class="input" placeholder="Jméno" [formControl]="form.controls.name_first" />
+        </div>
+        <div>
+          <label>Příjmení</label>
+          <input class="input" placeholder="Příjmení" [formControl]="form.controls.name_last" />
+        </div>
+       </div>
+      <div class="flex">
+        <div>
+          <label>E-Mail</label>
+          <input class="input" placeholder="Email" [formControl]="form.controls.email" />
+        </div>
+        <div>
+          <label>Uživatelské jméno</label>
+          <input class="input" placeholder="Uživatelské jméno" [formControl]="form.controls.username" />
+        </div>
+      </div>
+      <div class="flex">
+        <div>
+          <label>Heslo</label>
+          <input class="input" type="password" placeholder="Heslo" [formControl]="form.controls.password" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="action">
+  <button class="flat-button button" (click)="dialogRef.close()">Zrušit</button>
+  <button class="flat-button button buttonPrimary" (click)="save(form)">Uložit</button>
+</div>

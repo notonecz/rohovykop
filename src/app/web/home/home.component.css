@@ -1,0 +1,15 @@
+.grid {
+  padding-top: 16px;
+  display: flex;
+  height: 70dvh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+  justify-content: center;
+}
+.clanek {
+  width: 30%;
+  height: 33%;
+  min-width: 260px;
+}

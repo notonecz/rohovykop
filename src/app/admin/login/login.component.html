@@ -1,0 +1,35 @@
+<div class="loginbox" [formGroup]="form">
+  <h2>Přihlásit se</h2>
+  <mat-error *ngIf="form.errors?.['invalidLogin']" style="text-align: center; padding-bottom: 5px;">
+    Špatné přihlašovací údaje.
+  </mat-error>
+  <mat-form-field>
+    <mat-label>Uživatelské jméno</mat-label>
+    <mat-error *ngIf="form.controls.username.getError('required')">
+      Povinné pole
+    </mat-error>
+    <input matInput
+           [formControl]="form.controls.username"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Heslo</mat-label>
+    <mat-error *ngIf="form.controls.password.getError('required')">
+      Povinné pole
+    </mat-error>
+    <input matInput
+           [type]="hide() ? 'password' : 'text'"
+           [formControl]="form.controls.password"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button class="flat-button" (click)="login()" [disabled]="!form.valid">Přihlásit se</button>
+</div>

@@ -1,0 +1,54 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  margin-top: 16px;
+  width: 100%;
+  gap: 16px;
+  div {
+    width: auto;
+    .flat-button {
+      width: 100%;
+    }
+  }
+}
+input {
+  padding: 12px;
+}
+textarea {
+  padding: 12px;
+  resize: vertical;
+  min-height: 100px;
+  max-height: 400px;
+}
+.input {
+  background-color: #1e1e1e;
+  border: none;
+  color: white;
+}
+label {
+  padding-bottom: 16px;
+}
+.obrazek {
+  display: flex;
+  max-height: 350px;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.upload {
+  display: none;
+}
+.file {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}

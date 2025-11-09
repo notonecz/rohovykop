@@ -1,0 +1,11 @@
+<a routerLink="/">
+  <div class="clanek">
+    @if (image) {
+      <img [src]="image" alt="ImageClanek of {{nazev}}" style="max-height: 350px;object-fit: cover;"><br>
+    } @else {
+      <img src="/undefclanek.jpeg" style="filter: grayscale(1)" alt="ImageClanek of {{nazev}}"><br>
+    }
+    <p class="datum">{{redoDate(date)}}</p>
+    <h2 class="nazev">{{nazev}}</h2>
+  </div>
+</a>

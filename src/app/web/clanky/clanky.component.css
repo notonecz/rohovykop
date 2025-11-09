@@ -1,0 +1,14 @@
+.clanky {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.clanek-innner {
+  width: 560px;
+}
+@media screen and (max-width: 700px) {
+  .clanek-innner {
+    width: 100%;
+  }
+}

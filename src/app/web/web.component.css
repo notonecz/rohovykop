@@ -1,0 +1,16 @@
+:host {
+  overflow: hidden scroll;
+}
+.space {
+  height: 250px;
+}
+.router {
+  padding: 0 10%;
+  position: relative;
+}
+.loading {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  width: 100%;
+}

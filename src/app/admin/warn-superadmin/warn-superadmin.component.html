@@ -1,0 +1,15 @@
+<div>
+  <h2 class="header" style="color: red">Nevratná akce!</h2>
+  <div class="content">
+    <p style="color: #cacaca;font-style: italic;margin-top: 0">
+      Pokud změníte uživatele na super administrátora, nebude možné ho změnit zpět!<br>
+      Klasický administrátor má dostatečná oprávnění pro správu ostatních uživatelů a nastavení webu.<br><br>
+      Super administrátor je určen pouze pro osoby s trvalými právy, jako je majitel nebo spolumajitel.<br><br>
+      Prosím, pečlivě zvažte tuto akci!<br>
+    </p>
+  </div>
+</div>
+<div class="action">
+  <button class="flat-button button" (click)="dialogRef.close()">Zrušit</button>
+  <button class="flat-button button buttonPrimary" (click)="dialogRef.close(data.souhlas)">Upgradovat uživatele</button>
+</div>

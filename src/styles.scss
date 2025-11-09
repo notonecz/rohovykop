@@ -1,0 +1,126 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use '@angular/material' as mat;
+
+html {
+  color-scheme: light;
+  @include mat.theme((
+    color: mat.$green-palette,
+    typography: Roboto,
+    density: 0
+  ));
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent !important;
+}
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+.mdc-floating-label .mat-mdc-floating-label {
+  color: black !important;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+  border-bottom-color: black !important;
+}
+.mat-mdc-form-field-error {
+  color: black !important;
+}
+mat-label {
+  color: black !important;
+}
+.mdc-line-ripple--active::before {
+  border-bottom-color: black !important;
+}
+
+* {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+}
+
+.flat-button {
+  background-color: #000000;
+  color: #A7FF1A;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  transition: 0.15s;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+  &:hover {
+    background-color: #1e1e1e;
+  }
+  &:active {
+    color: #000000;
+    background-color: #A7FF1A;
+  }
+  &:disabled {
+    opacity: 0.6;
+    color: #A7FF1A;
+    cursor: not-allowed;
+    background-color: #1e1e1e;
+  }
+}
+.button {
+  width: 200px;
+}
+.buttonPrimary {
+  background-color: #A7FF1A;
+  color: black;
+  &:hover {
+    background-color: #000000;
+    color: #A7FF1A;
+  }
+  &:active {
+    background-color: #1e1e1e;
+    color: #A7FF1A;
+  }
+}
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+  button {
+    display: none;
+  }
+  &:hover {
+    button {
+      display: block;
+    }
+  }
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-start;
+  div {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+  }
+}
+
+.upload {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}

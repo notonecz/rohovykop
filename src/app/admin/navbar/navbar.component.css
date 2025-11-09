@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100dvh;
+  background-color: #A7FF1A;
+  position: relative;
+}
+img {
+  width: 100px;
+  height: 100px;
+  align-self: center;
+}
+a {
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  color: black;
+  text-decoration: none;
+  transition: 0.1s;
+  cursor: pointer !important;
+  mat-icon {
+    width: 25px;
+  }
+  &:hover {
+    background-color: #8BCF23;
+  }
+  &:active {
+    background-color: #98E720;
+  }
+}
+.active {
+  background-color: #98E720;
+}
+.ucet {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  cursor: pointer;
+}

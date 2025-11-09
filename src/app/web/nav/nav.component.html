@@ -1,0 +1,14 @@
+<div #baner class="image"></div>
+<div #navbox class="navbox">
+  <a routerLink="/">
+    <img #img src="/api/logo/get" alt="logo" class="logo" width="100">
+  </a>
+  <div class="links">
+    @for (n of nav; track n.name) {
+      <a [routerLink]="n.link" class="link">
+        {{n.name}}
+        <div routerLinkActive="active-underline" class="underline"></div>
+      </a>
+    }
+  </div>
+</div>

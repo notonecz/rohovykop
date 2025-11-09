@@ -1,0 +1,22 @@
+@if (session.authenticated()) {
+  <app-navbar></app-navbar>
+  @if (api.isLoading()) {
+    <mat-progress-bar class="loading" mode="indeterminate"></mat-progress-bar>
+  }
+  <div class="routerbox">
+    <div class="bg"></div>
+    <div class="action">
+      <h1>{{ name?.name }}</h1>
+      @if (name?.button) {
+        <button class="flat-button button" (click)="openDialog(name?.buttonFunc ?? 0, name?.button)">{{name?.button}}</button>
+      } @else if (name?.uctyButton) {
+        <button class="flat-button button" (click)="api.addClen()">Vytovřit nového uživatele</button>
+      }
+    </div>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+} @else {
+  <app-login></app-login>
+}

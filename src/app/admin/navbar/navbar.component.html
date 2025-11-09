@@ -1,0 +1,24 @@
+<img src="/rohovy-kop-logo-png.png" alt="logo">
+@for (i of api.nav; track i.name) {
+    @if (i.adminonly && (api.user?.root_admin ?? 0) >= 1) {
+      <a [routerLink]="'/admin/' + i.link" routerLinkActive="active">
+        <mat-icon>{{i.icon}}</mat-icon>
+        {{i.name}}
+      </a>
+    } @else if (!i.adminonly) {
+      <a [routerLink]="'/admin/' + i.link" routerLinkActive="active">
+        <mat-icon>{{i.icon}}</mat-icon>
+        {{i.name}}
+      </a>
+    }
+}
+<a (click)="session.logout()"><mat-icon>logout</mat-icon>Odhlásit se</a>
+
+<p class="ucet" [matMenuTriggerFor]="menu">
+  <mat-icon>account_circle</mat-icon>
+  {{api.user?.name_first + " " + api.user?.name_last}}
+</p>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="session.logout()">Odhlásit se</button>
+  <button mat-menu-item (click)="api.editClen(api.user?.id, api.user?.username, api.user?.email, api.user?.name_first, api.user?.name_last)">Upravit profil</button>
+</mat-menu>

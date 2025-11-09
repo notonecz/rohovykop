@@ -1,0 +1,42 @@
+<mat-list>
+  <div mat-subheader>Zveřejněné články</div>
+  @for (c of api.clanky; track c.id) {
+    @if (c.verejne) {
+      <div class="items">
+        <mat-list-item style="width: max-content;">
+          <mat-icon matListItemIcon>description</mat-icon>
+          <div matListItemTitle>{{c.nazev}}</div>
+          <div style="color: gray" mat-line>{{c.edges.autor.name_first}} {{c.edges.autor.name_last}}</div>
+        </mat-list-item>
+        <button (click)="verejneClanek(c.id, false)" class="flat-button" style="width: 40px;height: 40px">
+          <mat-icon>remove_done</mat-icon>
+        </button>
+        <button class="flat-button" style="width: 40px;height: 40px">
+          <mat-icon (click)="removeClanek(c.id)">delete</mat-icon>
+        </button>
+      </div>
+    }
+  }
+  <div mat-subheader>Nezveřejněné články</div>
+  @for (c of api.clanky; track c.id) {
+    @if (!c.verejne) {
+      <div class="items">
+        <mat-list-item style="width: max-content;">
+          <mat-icon matListItemIcon>visibility_off</mat-icon>
+          <div matListItemTitle>{{c.nazev}}</div>
+          <div style="color: gray" mat-line>{{c.edges.autor.name_first}} {{c.edges.autor.name_last}}</div>
+        </mat-list-item>
+        <button (click)="openDialog(c.type,c.nazev,c.text,c.image,c.id,'Upravit')" class="flat-button" style="width: 40px;height: 40px">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="verejneClanek(c.id, true)" class="flat-button" style="width: 40px;height: 40px">
+          <mat-icon>done_all</mat-icon>
+        </button>
+        <button class="flat-button" style="width: 40px;height: 40px">
+          <mat-icon (click)="removeClanek(c.id)">delete</mat-icon>
+        </button>
+      </div>
+    }
+  }
+</mat-list>
+

@@ -1,0 +1,18 @@
+<h1>{{ nazev }}</h1>
+<div class="clanky">
+  @if (clanky; as clanek) {
+    @for (c of clanek; track c.date;) {
+      <app-clanek-box class="clanek-innner"
+                      [date]="c.date"
+                      [image]="c.image"
+                      [nazev]="c.nazev">
+      </app-clanek-box>
+    }
+    @if (!clanek[0]) {
+      <p>Nejsou dostupné žádné články!</p>
+    }
+  }
+  @if (!clanky) {
+    <p>Načítám články...</p>
+  }
+</div>
